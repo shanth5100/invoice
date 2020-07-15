@@ -1,7 +1,5 @@
 package com.invoice.api.util.req;
 
-import java.util.EnumSet;
-
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
