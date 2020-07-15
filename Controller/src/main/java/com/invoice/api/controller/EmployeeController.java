@@ -28,10 +28,13 @@ public class EmployeeController {
 	@PostMapping
 	public ResponseEntity<?> saveEmployee(@RequestBody EmployeeReq empReq) {
 		EmployeeResponse employeeResponse = utilEmpService.saveEmployee(empReq);
-		return ResponseEntity.created(URI.create("")).body(employeeResponse);		
+		if (employeeResponse != null) {
+			return ResponseEntity.created(URI.create("")).body(employeeResponse);
+		}
+		return ResponseEntity.status(406).body("Unable to process your request");		
 	}
 	
-	@PutMapping("/id")
+	@PutMapping("/{id}")
 	public ResponseEntity<?> updateEmployee(@PathVariable Long id, @RequestBody EmployeeReq empReq) {
 		EmployeeResponse employeeResponse = utilEmpService.updateEmployee(id, empReq);
 		if (employeeResponse != null) {
@@ -44,6 +47,15 @@ public class EmployeeController {
 	public ResponseEntity<?> employeeList() {
 		List<EmployeeResponse> employeeList = utilEmpService.employeeList();
 		return ResponseEntity.ok().body(employeeList);		
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> employeeById(@PathVariable Long id) {
+		EmployeeResponse employee = utilEmpService.employeeById(id);
+		if (employee == null) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Employee not found by "+id);
+		}
+		return ResponseEntity.ok().body(employee);		
 	}
 	
 }

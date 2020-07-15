@@ -7,5 +7,5 @@ import com.invoice.api.util.dao.beans.Employee;
 
 @Repository
 public interface EmployeeDao extends JpaRepository<Employee, Long> {
-
+	
 }

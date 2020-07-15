@@ -28,6 +28,16 @@ public class EmpServiceImpl implements UtilEmpService{
 		
 		return list;
 	}
+
+	@Override
+	public EmployeeResponse employeeById(Long id) {
+		Optional<Employee> empById = empDao.findById(id);
+		if (empById.isPresent()) {
+			EmployeeResponse validResponse = validResponse(empById.get());
+			return validResponse;
+		}
+		return null;
+	}
 	
 	@Override
 	public EmployeeResponse saveEmployee(EmployeeReq empReq) {
@@ -39,7 +49,6 @@ public class EmpServiceImpl implements UtilEmpService{
 		return validResponse;
 	}
 
-
 	@Override
 	public EmployeeResponse updateEmployee(Long id, EmployeeReq empReq) {
 		Optional<Employee> empById = empDao.findById(id);
@@ -48,13 +57,14 @@ public class EmpServiceImpl implements UtilEmpService{
 
 			updateEmp.setEmp_id(empReq.getEmp_id());
 			updateEmp.setName(empReq.getName());
-			updateEmp.setEmail(empReq.getDepartment());
+			updateEmp.setEmail(empReq.getEmail());
 			updateEmp.setSalary(empReq.getSalary());
 			updateEmp.setJoinDate(empReq.getJoinDate());
 			updateEmp.setOrganisation(empReq.getOrganisation());
 			updateEmp.setDepartment(empReq.getDepartment());
 			
-			Employee updateEmpResp = empDao.save(updateEmp);
+			Employee updateEmpResp = empDao.saveAndFlush(updateEmp);
+//			Employee updateEmpResp = empDao.save(updateEmp);
 			EmployeeResponse empResp = validResponse(updateEmpResp);
 			return empResp;
 		}
@@ -81,6 +91,7 @@ public class EmpServiceImpl implements UtilEmpService{
 		validResponse.setJoinDate(response.getJoinDate());
 		validResponse.setOrganisation(response.getOrganisation());
 		validResponse.setSalary(response.getSalary());
+		validResponse.setEmp_id(response.getEmp_id());
 		
 		return validResponse;
 	}
