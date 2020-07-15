@@ -81,7 +81,6 @@ public class AccountDetailsServiceImpl extends EmployeeUtil implements UtilAccou
 	}
 
 	private AccountDetails convertToAccountDeatils(@Valid AccountDetailsReq accDetaReq, Employee employee) {
-		System.out.println("convertToAccountDeatils");
 		AccountDetails accountDetails = new AccountDetails();
 		accountDetails.setEmployee(employee);
 		accountDetails.setAccNumber(accDetaReq.getAccNumber());

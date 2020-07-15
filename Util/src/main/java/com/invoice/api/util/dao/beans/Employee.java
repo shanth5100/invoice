@@ -9,9 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -24,17 +21,16 @@ import com.invoice.api.util.dao.beans.field.Salary;
 @Table(name = "employee")
 public class Employee extends Salary {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
+	 * 
+	 * public Long getId() { return id; }
+	 * 
+	 * public void setId(Long id) { this.id = id; }
+	 */	
+	
 	@Enumerated(EnumType.STRING)
 	private Organisation organisation;
 
@@ -43,7 +39,11 @@ public class Employee extends Salary {
 	
 	@JsonIgnore 
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="employee", fetch = FetchType.EAGER)
-	private Set<AccountDetails> labels;
+	private Set<AccountDetails> accDetails;
+	
+	@JsonIgnore 
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="employeePay", fetch = FetchType.EAGER)
+	private Set<Payout> payout;
 
 	@NotBlank
 	@Column(updatable = false)
@@ -80,6 +80,12 @@ public class Employee extends Salary {
 
 	public void setDepartment(String department) {
 		this.department = department;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [organisation=" + organisation + ", joinDate=" + joinDate + ", accDetails=" + accDetails
+				+ ", emp_id=" + emp_id + ", department=" + department + "]";
 	}
 
 }

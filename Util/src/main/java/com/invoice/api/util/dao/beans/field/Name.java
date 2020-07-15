@@ -3,7 +3,7 @@ package com.invoice.api.util.dao.beans.field;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class Name {
+public class Name extends IdGenarate{
 
 	private String name;
 

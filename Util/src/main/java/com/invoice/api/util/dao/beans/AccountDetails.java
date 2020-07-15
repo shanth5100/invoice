@@ -18,9 +18,9 @@ import com.invoice.api.util.dao.beans.field.Name;
 @Table(name = "account_details")
 public class AccountDetails extends Name{
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	private Long id;
 	@NotBlank
 	@Size(max = 18)
 	private String accNumber;
@@ -32,12 +32,12 @@ public class AccountDetails extends Name{
 	@ManyToOne(cascade=CascadeType.ALL)  
 	private Employee employee;
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+//	public Long getId() {
+//		return id;
+//	}
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
 	public String getAccNumber() {
 		return accNumber;
 	}

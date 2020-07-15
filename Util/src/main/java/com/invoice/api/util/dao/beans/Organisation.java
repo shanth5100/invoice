@@ -17,9 +17,11 @@ import com.invoice.api.util.dao.beans.field.Name;
 @Table(name = "organisation")
 public class Organisation extends Name{
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
+	 */
 	private String address1;
 	private String address2;
 	@JsonIgnore
@@ -27,9 +29,11 @@ public class Organisation extends Name{
 	@Cascade(CascadeType.ALL)
 	private AccountDetails acc_details;
 	
-	public Long getId() {
-		return id;
-	}
+	/*
+	 * public Long getId() { return id; }
+	 * public void setId(Long id) { this.id = id; }
+	 */	
+	
 	public String getAddress1() {
 		return address1;
 	}
@@ -39,9 +43,7 @@ public class Organisation extends Name{
 	public AccountDetails getAcc_details() {
 		return acc_details;
 	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 	public void setAddress1(String address1) {
 		this.address1 = address1;
 	}
