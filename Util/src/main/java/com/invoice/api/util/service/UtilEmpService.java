@@ -11,4 +11,6 @@ public interface UtilEmpService {
 	List<EmployeeResponse> employeeList();
 
 	EmployeeResponse updateEmployee(Long id, EmployeeReq empReq);
+
+	EmployeeResponse employeeById(Long id);
 }
