@@ -1,9 +1,14 @@
 package com.invoice.api.util.req;
 
+import javax.validation.constraints.NotBlank;
+
 public class AccountDetailsReq {
 	private Long id;
+	@NotBlank
 	private String bankName;
+	@NotBlank
 	private String accNumber;
+	@NotBlank
 	private String ifsc;
 	
 	public Long getId() {
