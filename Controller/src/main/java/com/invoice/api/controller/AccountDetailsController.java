@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,8 @@ import com.invoice.api.util.req.AccountDetailsReq;
 import com.invoice.api.util.resp.AccountDetailsResp;
 import com.invoice.api.util.service.UtilAccountDetailsService;
 
+
+@CrossOrigin
 @RestController
 @RequestMapping("/invoice/employee/{eid}/accontDetails")
 public class AccountDetailsController{
