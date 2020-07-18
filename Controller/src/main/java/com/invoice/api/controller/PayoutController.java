@@ -21,7 +21,7 @@ import com.invoice.api.util.req.PayoutReq;
 import com.invoice.api.util.resp.PayoutResponse;
 import com.invoice.api.util.service.UtilPayoutService;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/invoice/employee/{empId}/payslip")
 public class PayoutController {

@@ -22,7 +22,7 @@ import com.invoice.api.util.req.OrganisationReq;
 import com.invoice.api.util.resp.OrganisationResp;
 import com.invoice.api.util.service.UtilOrganisationService;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/invoice/organisation")
 public class OrganisationController {

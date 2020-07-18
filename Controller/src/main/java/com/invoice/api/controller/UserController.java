@@ -21,7 +21,7 @@ import com.invoice.api.util.dao.beans.constnt.AppConstants;
 import com.invoice.api.util.req.UserReq;
 import com.invoice.api.util.service.UtilUserService;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class UserController {
 	

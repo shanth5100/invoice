@@ -19,7 +19,7 @@ import com.invoice.api.util.req.EmployeeReq;
 import com.invoice.api.util.resp.EmployeeResponse;
 import com.invoice.api.util.service.UtilEmpService;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/invoice/employee")
 public class EmployeeController {

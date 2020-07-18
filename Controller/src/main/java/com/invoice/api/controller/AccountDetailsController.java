@@ -21,7 +21,7 @@ import com.invoice.api.util.resp.AccountDetailsResp;
 import com.invoice.api.util.service.UtilAccountDetailsService;
 
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/invoice/employee/{eid}/accontDetails")
 public class AccountDetailsController{
